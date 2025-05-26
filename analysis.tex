@@ -1,0 +1,419 @@
+\section{Phân tích kiến trúc}
+\subsection{Key abstraction}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{img2/Key abstraction.png} 
+    \caption{Danh sách Key abstraction}
+\end{figure}
+
+\textbf{\indent User}
+\begin{itemize}
+    \item Định nghĩa: Là tài khoản của người dùng để thực hiện các chức năng như thuê phòng, thuê phương tiện và cho thuê phòng
+    \item Cơ chế phân tích: Persistency, Security
+\end{itemize}
+
+\textbf{Hotel}
+\begin{itemize}
+    \item Định nghĩa: là đối tượng chứa thông tin về các phòng và dịch vụ.
+    \item Cơ chế phân tích: Persistency
+\end{itemize}
+
+\textbf{Room}
+\begin{itemize}
+    \item Định nghĩa: là đối tượng đại diện cho các phòng có thể được thuê của một khách sạn.
+    \item Cơ chế phân tích: Persistency
+\end{itemize}
+
+\textbf{Vehicle}
+\begin{itemize}
+    \item Định nghĩa: là đối tượng đại diện cho các phương tiện có thể được thuê.
+    \item Cơ chế phân tích: Persistency
+\end{itemize}
+
+\textbf{RoomBooking}
+\begin{itemize}
+    \item Định nghĩa: là đối tượng quản lý việc đặt phòng của người dùng.
+    \item Cơ chế phân tích: Persistency
+\end{itemize}
+
+\textbf{RoomRental}
+\begin{itemize}
+    \item Định nghĩa: là đối tượng quản lý việc cho thuê phòng trọ của người dùng.
+    \item Cơ chế phân tích: Persistency
+\end{itemize}
+
+\textbf{VehicleBooking}
+\begin{itemize}
+    \item Định nghĩa: là đối tượng quản lý việc đặt phương tiện của người dùng.
+    \item Cơ chế phân tích: Persistency
+\end{itemize}
+
+\textbf{Payment}
+\begin{itemize}
+    \item Định nghĩa: là đối tượng quản lý việc thanh toán của người dùng.
+    \item Cơ chế phân tích: Persistency, Security
+\end{itemize}
+\subsection{Thành phần cấp cao và sự phụ thuộc}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img2/MVC.drawio.png} 
+    \caption{Mô hình MVC}
+\end{figure}
+\begin{itemize}
+    \item \textbf{Controller:} 	Điều phối luồng xử lý giữa View và Model
+    \item \textbf{Model:} Tính toán nghiệp vụ, xử lý và kiểm tra dữ liệu
+    \item \textbf{View:} hiển thị thông tin, tương tác trực tiếp với người dùng, chuyển tiếp các yêu cầu tới hệ thống và hiển thị kết quả đầu ra cho người dùng.
+\end{itemize}
+
+\section{Phân tích Use case}
+\subsection{Biểu đồ tuần tự các use case}
+\subsubsection{Đặt phòng khách sạn}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2/timthue.jpg}
+    \caption{Biểu đồ tuần tự ca sử dụng Đặt phòng khách sạn}
+\end{figure}
+
+\subsubsection{Theo dõi phòng đã đặt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2/xemphongdathue.jpg}
+    \caption{Biểu đồ tuần tự ca sử dụng Theo dõi phòng đã đặt}
+\end{figure}
+
+\subsubsection{Đánh giá phòng đã thuê}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2/danhgia.jpg}
+    \caption{Biểu đồ tuần tự ca sử dụng Đánh giá phòng đã thuê}
+\end{figure}
+
+\subsubsection{Liên hệ với chủ khách sạn}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2/chat.jpg}
+    \caption{Biểu đồ tuần tự ca sử dụng Liên hệ với chủ khách sạn}
+\end{figure}
+
+\subsubsection{Xem danh sách phòng yêu thích}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2/xemphongyeuthich.jpg}
+    \caption{Biểu đồ tuần tự ca sử dụng Xem danh sách phòng yêu thích}
+\end{figure}
+
+\subsubsection{Cho thuê phòng}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2/chothuephong.png}
+    \caption{Biểu đồ tuần tự ca sử dụng Cho thuê phòng}
+\end{figure}
+
+\subsubsection{Chỉnh sửa thông tin phòng khách sạn}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2/chinhsuathongtinpt.png}
+    \caption{Biểu đồ tuần tự ca sử dụng Chỉnh sửa thông tin phòng khách sạn}
+\end{figure}
+
+\subsubsection{Tra cứu thông tin phòng cho thuê}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2/tracuutrangthaiphongpt.png}
+    \caption{Biểu đồ tuần tự ca sử dụng Tra cứu phòng cho thuê theo status}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2/tracuutheodoanhthupt.png}
+    \caption{Biểu đồ tuần tự ca sử dụng Tra cứu phòng cho thuê theo revenue}
+\end{figure}
+
+\subsubsection{Xóa phòng khách sạn}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2/xoaphongpt.png}
+    \caption{Biểu đồ tuần tự ca sử dụng Xóa phòng khách sạn}
+\end{figure}
+
+\subsubsection{Thanh toán}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2/2.1thanhtoanbangtk.png}
+    \caption{Biểu đồ tuần tự ca sử dụng Thanh toán trực tuyến}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2/2.1thanhtoantructiep.png}
+    \caption{Biểu đồ tuần tự ca sử dụng Thanh toán trực tiếp}
+\end{figure}
+
+\subsubsection{Tra cứu phương tiện}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2/2.1timphuongtien.png}
+    \caption{Biểu đồ tuần tự ca sử dụng Tra cứu phương tiện}
+\end{figure}
+
+\subsubsection{Đăng ký tài khoản}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2/Analysis-Đăng ký.drawio.png}
+    \caption{Biểu đồ tuần tự ca sử dụng Đăng ký tài khoản}
+\end{figure}
+
+\subsubsection{Đăng nhập}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2/Analysis-Đăng nhập.drawio.png}
+    \caption{Biểu đồ tuần tự ca sử dụng Đăng nhập}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2/Analysis-Đổi mật khẩu.drawio.png}
+    \caption{Biểu đồ tuần tự ca sử dụng Quên mật khẩu}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2/Analysis-Thay đổi thông tin.drawio.png}
+    \caption{Biểu đồ tuần tự ca sử dụng Thay đổi thông tin tài khoản}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img2/Analysis-Xóa tài khoản.drawio.png}
+    \caption{Biểu đồ tuần tự ca sử dụng Xóa tài khoản}
+\end{figure}
+
+\subsubsection{Lựa chọn ngôn ngữ}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img2/Analysis-Chọn ngôn ngữ.drawio.png}
+    \caption{Biểu đồ tuần tự ca sử dụng Chọn ngôn ngữ}
+\end{figure}
+
+\subsection{Biểu đồ lớp pha phân tích}
+\subsubsection{Đặt phòng khách sạn}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img2.2/tim.jpg}
+    \caption{Biểu đồ lớp cho ca sử dụng Đặt phòng khách sạn}
+\end{figure}
+
+\subsubsection{Theo dõi phòng đã đặt}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2.2/dathue.jpg}
+    \caption{Biểu đồ lớp ca sử dụng Theo dõi phòng đã đặt}
+\end{figure}
+
+\subsubsection{Đánh giá phòng đã thuê}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2.2/nhaxet.jpg}
+    \caption{Biểu đồ lớp ca sử dụng Đánh giá phòng đã thuê}
+\end{figure}
+
+\subsubsection{Liên hệ với chủ khách sạn}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2.2/ntin.jpg}
+    \caption{Biểu đồ lớp ca sử dụng Liên hệ với chủ khách sạn}
+\end{figure}
+
+\subsubsection{Xem danh sách phòng yêu thích}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{img2.2/yeuthich.jpg}
+    \caption{Biểu đồ lớp ca sử dụng Xem danh sách phòng yêu thích}
+\end{figure}
+
+\subsubsection{Cho thuê phòng}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img2.2/chothuephong.png}
+    \caption{Biểu đồ lớp ca sử dụng Cho thuê phòng}
+\end{figure}
+
+\subsubsection{Chỉnh sửa thông tin phòng khách sạn}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{img2.2/doithongtinphong.png}
+    \caption{Biểu đồ lớp ca sử dụng Chỉnh sửa thông tin phòng khách sạn}
+\end{figure}
+
+\subsubsection{Tra cứu thông tin phòng cho thuê}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{img2.2/tracuutrangthaiphong.png}
+    \caption{Biểu đồ lớp ca sử dụng Tra cứu phòng cho thuê}
+\end{figure}
+
+\subsubsection{Xóa phòng khách sạn}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2.2/xoaphong.png}
+    \caption{Biểu đồ lớp ca sử dụng Xóa phòng khách sạn}
+\end{figure}
+
+\subsubsection{Thanh toán}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2.2/2.2thanhtoan.png}
+    \caption{Biểu đồ lớp ca sử dụng Thanh toán}
+\end{figure}
+
+\subsubsection{Tra cứu phương tiện}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2.2/2.2timphuongtien.png}
+    \caption{Biểu đồ lớp ca sử dụng Tra cứu phương tiện}
+\end{figure}
+
+\subsubsection{Đăng ký tài khoản}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2.2/Analysis-Đăng ký.drawio.png}
+    \caption{Biểu đồ lớp ca sử dụng Đăng ký tài khoản}
+\end{figure}
+
+\subsubsection{Đăng nhập}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2.2/Analysis-Đăng nhập.drawio.png}
+    \caption{Biểu đồ lớp ca sử dụng Đăng nhập}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2.2/Analysis-Quên mật khẩu.drawio.png}
+    \caption{Biểu đồ lớp ca sử dụng Quên mật khẩu}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2.2/Analysis-Thay đổi thông tin.drawio.png}
+    \caption{Biểu đồ lớp ca sử dụng Thay đổi thông tin tài khoản}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{img2.2/Analysis-Xóa tài khoản.drawio.png}
+    \caption{Biểu đồ lớp ca sử dụng Xóa tài khoản}
+\end{figure}
+
+\subsubsection{Lựa chọn ngôn ngữ}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{img2.2/Analysis-Thay đổi ngôn ngữ.drawio.png}
+    \caption{Biểu đồ lớp ca sử dụng Chọn ngôn ngữ}
+\end{figure}
+
+\subsection{Ánh xạ từ lớp phân tích tới cơ chế phân tích}
+\begin{longtable}{|p{6cm}|p{9cm}|}
+\hline
+\textbf{Analysis Class} & \textbf{Analysis Mechanism(s)} \\
+\hline
+RoomSearchView & None \\
+\hline
+RoomSearchController & Distribution \\
+\hline
+Room & Security, Persistency \\
+\hline
+PaymentGateway & Security, Error detection /handling /reporting \\
+\hline
+NotificationSystem & None \\
+\hline
+BookingHistoryView & None \\
+\hline
+BookingController & Distribution, Error detection /handling /reporting \\
+\hline
+Booking & Security, Persistency \\
+\hline
+BookingListView & None \\
+\hline
+ReviewView & None \\
+\hline
+ReviewController & Distribution \\
+\hline
+Review & Persistency, Security \\
+\hline
+RoomDetailView & None \\
+\hline
+ChatController & None \\
+\hline
+ChatInterface & None \\
+\hline
+Message & Persistency, Security \\
+\hline
+Host & Persistency, Security \\
+\hline
+FavoriteRoomView & None \\
+\hline
+FavoriteController & Distribution \\
+\hline
+Room & Persistency, Security \\
+\hline
+UserController & Distribution \\
+\hline
+LeaseHotelView & None \\
+\hline
+AuthenticationSystem & None \\
+\hline
+LeaseHotelController & Distribution \\
+\hline
+HotelDatabase & Persistency, Security \\
+\hline
+HotelView & None \\
+\hline
+HotelController & Distribution \\
+\hline
+SearchRentalHotelView & None \\
+\hline
+SearchRentalHotelController & Distribution \\
+\hline
+PaymentView & None \\
+\hline
+PaymentController & Distribution, Error detection /handling /reporting \\
+\hline
+Payment & Persistency, Security \\
+\hline
+PaymentSystem & Security, Error detection /handling /reporting \\
+\hline
+OrderView & None \\
+\hline
+OrderController & Distribution \\
+\hline
+Order & Persistency, Security \\
+\hline
+FindVehicleView & None \\
+\hline
+FindVehicleController & Distribution \\
+\hline
+LeaseHotelController & Distribution \\
+\hline
+MapAPISystem & None \\
+\hline
+RegisterForm & None \\
+\hline
+UserDatabase & Persistency, Security \\
+\hline
+User & Persistency, Security \\
+\hline
+LoginForm & None \\
+\hline
+NewPasswordForm & None \\
+\hline
+ChangeInfoForm & None \\
+\hline
+DeleteAccountForm & None \\
+\hline
+LanguageView & None \\
+\hline
+LanguageController & None \\
+\hline
+\end{longtable}

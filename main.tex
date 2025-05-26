@@ -1,0 +1,90 @@
+\documentclass[a4paper,12pt,oneside]{report}
+\usepackage{fontspec}  
+\setmainfont{Arial}      
+\usepackage[vietnamese]{babel}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{chngcntr}
+\usepackage{longtable}
+\usepackage{enumitem}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{fancyhdr}
+\usepackage{tikz}
+\pagestyle{empty}
+
+\usepackage[a4paper,
+    left=2.5cm,
+    right=2cm,
+    top=2cm,
+    bottom=2cm
+]{geometry}
+
+\setcounter{secnumdepth}{3} % đánh số đến subsubsection
+\setcounter{tocdepth}{3} % Table of content hiển thị đến subsubsection
+
+\counterwithin{figure}{subsection}
+
+\titleformat{\chapter}[hang] 
+  {\normalfont\LARGE\bfseries}
+  {\thechapter} 
+  {1em}        
+  {}             
+  \renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\arabic{section}}
+\setlength{\parskip}{10pt} 
+
+\begin{document}
+
+% Vẽ khung viền
+\begin{tikzpicture}[remember picture, overlay]
+  \draw[line width=1pt]
+    ([xshift=1cm,yshift=-1cm]current page.north west) rectangle 
+    ([xshift=-1cm,yshift=1cm]current page.south east);
+\end{tikzpicture}
+
+% Nội dung chính căn giữa
+\begin{center}
+    \textbf{ĐẠI HỌC QUỐC GIA HÀ NỘI} \\
+    \textbf{TRƯỜNG ĐẠI HỌC CÔNG NGHỆ} \\[3em]
+
+    \includegraphics[width=0.3\textwidth]{img/logo.png} \\[3em]
+
+    \LARGE \textbf{BÀI TẬP LỚN} \\[0.5em]
+    \Large \textbf{CÔNG NGHỆ PHẦN MỀM} \\[0.5em]
+    \normalsize \textbf{Chủ đề: Hệ thống đặt phòng khách sạn} \\[4em]
+\end{center}
+
+\vspace{2em}
+
+% Thông tin nhóm
+\hfill
+\begin{minipage}{0.45\textwidth}
+    \textbf{Lớp:} INT2208\_7 \\
+    \textbf{Nhóm:} 7 \\
+    \textbf{Thành viên:}
+    \begin{itemize}
+        \item Phạm Đức Thiện
+        \item Phạm Tuấn Việt
+        \item Đoàn Văn Tuyền
+        \item Phạm Văn Minh
+    \end{itemize}
+\end{minipage}
+
+\vfill
+
+\begin{center}
+    \thepage
+\end{center}
+
+\tableofcontents
+
+\chapter{Đặc tả yêu cầu}
+\input{requirement}
+\chapter{Phân tích hệ thống}
+\input{analysis}
+\chapter{Thiết kế hệ thống}
+\input{design}
+\end{document}
